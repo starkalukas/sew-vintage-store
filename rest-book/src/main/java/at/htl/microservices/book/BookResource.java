@@ -17,6 +17,7 @@ public class BookResource {
     @Inject
     Logger logger;
 
+    @Inject
     @RestClient
     NumberProxy proxy;
 
