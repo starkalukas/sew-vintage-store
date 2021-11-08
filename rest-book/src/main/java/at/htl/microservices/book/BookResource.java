@@ -1,3 +1,5 @@
+
+
 package at.htl.microservices.book;
 
 import org.jboss.logging.Logger;
@@ -20,21 +22,19 @@ public class BookResource {
     public Response createABook(
             @FormParam("title") String title,
             @FormParam("author") String author,
-            @FormParam("year") int yearOfPublication,
+            @FormParam("year") int yearOfPubication,
             @FormParam("genre") String genre
     ) {
         Book book = new Book();
-        book.isbn13 = "13-We will get it from the number microservice";
+        book.isbn13 = "We will get it from the Number Microservice";
         book.title = title;
         book.author = author;
-        book.yearOfPublication = yearOfPublication;
+        book.yearOfPublication = yearOfPubication;
         book.genre = genre;
         book.creationTime = Instant.now();
 
         logger.infof("Book created: %s", book);
-        return Response
-                .status(Response.Status.CREATED)
-                .entity(book)
-                .build();
+        return Response.status(201).entity(book).build();
     }
 }
+
